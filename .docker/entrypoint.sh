@@ -34,7 +34,7 @@ set -eu
 #     | psql "$DATABASE_URL" -v ON_ERROR_STOP=1
 #   echo "Backup restaurado com sucesso."
 # }
-
+g
 # restore_backup_if_needed
 
 echo "Aplicando migrations..."

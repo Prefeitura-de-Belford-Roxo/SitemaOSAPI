@@ -82,6 +82,12 @@ export class CreateServiceOrderDTO {
   @IsString()
   @Sanitize()
   contactPhone?: string;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsString()
+  @Sanitize()
+  registrationNumber?: string;
 }
 
 export class CreateServiceOrderWithFileDTO extends CreateServiceOrderDTO {

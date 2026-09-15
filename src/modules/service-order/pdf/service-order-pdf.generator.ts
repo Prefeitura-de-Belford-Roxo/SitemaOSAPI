@@ -9,6 +9,7 @@ export type ServiceOrderPdfData = {
   requester: string;
   contactName: string | null;
   contactPhone: string | null;
+  registrationNumber: string | null;
   isExternal: boolean;
   typeLabel: string;
   priorityLabel: string;
@@ -28,8 +29,6 @@ export type ServiceOrderPdfData = {
 };
 
 const NOT_REGISTERED = 'Não cadastrado';
-/** Mock temporário até existir telefone do usuário no cadastro */
-const MOCK_USER_PHONE = '(21) 98999-9370';
 
 const PAGE = { width: 595.28, height: 841.89 };
 const MARGIN_X = 34;
@@ -208,18 +207,22 @@ export class ServiceOrderPdfGenerator {
     y: number,
   ): number {
     const rowH = 38;
-    const widths = [170, 85, 170, CONTENT_WIDTH - 170 - 85 - 170];
+    const widths = [150, 95, 110, CONTENT_WIDTH - 150 - 95 - 110];
     const cells: Cell[] = [
       { label: 'Usuário', value: data.requester, width: widths[0] },
-      { label: 'Telefone', value: MOCK_USER_PHONE, width: widths[1] },
       {
-        label: 'Nome do Contato',
-        value: orNa(data.contactName),
+        label: 'Matrícula',
+        value: orNa(data.registrationNumber),
+        width: widths[1],
+      },
+      {
+        label: 'Telefone',
+        value: formatPhone(data.contactPhone),
         width: widths[2],
       },
       {
-        label: 'Tel. do Contato',
-        value: formatPhone(data.contactPhone),
+        label: 'Nome do Contato',
+        value: orNa(data.contactName),
         width: widths[3],
       },
     ];

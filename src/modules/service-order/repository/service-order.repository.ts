@@ -25,6 +25,7 @@ const serviceOrderListScalarSelect = {
   isExternal: true,
   contactName: true,
   contactPhone: true,
+  registrationNumber: true,
   labEntryAt: true,
   labExitAt: true,
   labDescription: true,
@@ -143,6 +144,7 @@ export class ServiceOrderRepository {
       order.isExternal,
       order.contactName ?? undefined,
       order.contactPhone ?? undefined,
+      order.registrationNumber ?? undefined,
       order.labEntryAt ?? undefined,
       order.labExitAt ?? undefined,
       order.labDescription ?? undefined,
@@ -725,6 +727,7 @@ export class ServiceOrderRepository {
         order.isExternal,
         order.contactName ?? undefined,
         order.contactPhone ?? undefined,
+        order.registrationNumber ?? undefined,
         order.labEntryAt ?? undefined,
         order.labExitAt ?? undefined,
         order.labDescription ?? undefined,
@@ -822,6 +825,7 @@ export class ServiceOrderRepository {
             isExternal: dto.isExternal ?? false,
             contactName: dto.contactName ?? null,
             contactPhone: dto.contactPhone ?? null,
+            registrationNumber: dto.registrationNumber ?? null,
             user: {
               connect: {
                 id: userId,
@@ -913,6 +917,7 @@ export class ServiceOrderRepository {
     isExternal: boolean;
     contactName: string | null;
     contactPhone: string | null;
+    registrationNumber: string | null;
     labDescription: string | null;
     createdAt: Date;
     patrimony: {
@@ -945,6 +950,7 @@ export class ServiceOrderRepository {
         isExternal: true,
         contactName: true,
         contactPhone: true,
+        registrationNumber: true,
         labDescription: true,
         createdAt: true,
         patrimony: {
@@ -986,6 +992,7 @@ export class ServiceOrderRepository {
       isExternal: order.isExternal,
       contactName: order.contactName,
       contactPhone: order.contactPhone,
+      registrationNumber: order.registrationNumber,
       labDescription: order.labDescription,
       createdAt: order.createdAt,
       patrimony: order.patrimony

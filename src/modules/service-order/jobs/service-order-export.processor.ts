@@ -152,6 +152,8 @@ export class ServiceOrderExportProcessor {
           value: (r) => departmentLabels[r.department],
         },
         { header: 'Solicitante', value: (r) => r.requester },
+        { header: 'Matrícula', value: (r) => r.registrationNumber ?? '' },
+        { header: 'Telefone', value: (r) => r.contactPhone ?? '' },
         {
           header: 'Prioridade',
           value: (r) => serviceOrderPriorityLabels[r.priority],

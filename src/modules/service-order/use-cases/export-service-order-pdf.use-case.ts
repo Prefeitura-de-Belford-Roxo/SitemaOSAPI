@@ -69,6 +69,7 @@ export class ExportServiceOrderPdfUseCase {
       requester: order.requester,
       contactName: order.contactName,
       contactPhone: order.contactPhone,
+      registrationNumber: order.registrationNumber,
       isExternal: order.isExternal,
       typeLabel:
         serviceOrderTypeLabels[order.type as ServiceOrderType] ?? order.type,

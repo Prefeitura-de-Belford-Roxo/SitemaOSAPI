@@ -134,6 +134,7 @@ model ServiceOrder {
   isExternal         Boolean              @default(false) @map("is_external")
   contactName        String?              @map("contact_name")
   contactPhone       String?              @map("contact_phone")
+  registrationNumber String?              @map("registration_number")
   serviceRating      Int?                 @map("service_rating")
   ratedAt            DateTime?            @map("rated_at")
   closedAt           DateTime?            @map("closed_at")
