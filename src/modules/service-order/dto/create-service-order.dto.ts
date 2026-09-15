@@ -1,18 +1,18 @@
-import { Sanitize } from '@common/decorators';
+import { Sanitize, TransformBoolean } from '@common/decorators';
 import { ApiProperty } from '@nestjs/swagger';
 import {
-    IsBoolean,
-    IsEnum,
-    IsNotEmpty,
-    IsOptional,
-    IsString,
+  IsBoolean,
+  IsEnum,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
 } from 'class-validator';
 import { Department, departments } from 'types/department';
 import {
-    serviceOrderPriorities,
-    ServiceOrderPriority,
-    ServiceOrderType,
-    serviceOrderTypes,
+  serviceOrderPriorities,
+  ServiceOrderPriority,
+  ServiceOrderType,
+  serviceOrderTypes,
 } from 'types/service-order';
 
 export class CreateServiceOrderDTO {
@@ -68,6 +68,7 @@ export class CreateServiceOrderDTO {
 
   @ApiProperty({ required: false, default: false })
   @IsOptional()
+  @TransformBoolean()
   @IsBoolean()
   isExternal?: boolean;
 
