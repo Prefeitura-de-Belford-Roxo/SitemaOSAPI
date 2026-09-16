@@ -21,10 +21,11 @@ export class CreateServiceOrderDTO {
   @Sanitize()
   subject: string;
 
-  @IsNotEmpty()
+  @ApiProperty({ required: false, default: '' })
+  @IsOptional()
   @IsString()
   @Sanitize()
-  description: string;
+  description?: string;
 
   @IsNotEmpty()
   @IsString()

@@ -123,7 +123,7 @@ model ServiceOrder {
   id                 String               @id @default(uuid())
   orderId            String               @unique @map("order_id")
   subject            String               @map("subject")
-  description        String               @map("description")
+  description        String?              @map("description")
   type               ServiceOrderType     @map("type")
   department         Department
   requester          String

@@ -815,7 +815,7 @@ export class ServiceOrderRepository {
             id: generateId(),
             orderId,
             subject: dto.subject,
-            description: dto.description,
+            description: dto.description ?? '',
             type: dto.type,
             status: 'OPEN',
             department: dto.department,
